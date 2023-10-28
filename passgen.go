@@ -55,7 +55,7 @@ func generatePassword(length int) (string, error) {
 }
 
 func main() {
-	length := flag.Int("length", 12, "password length")
+	length := flag.Int("length", 16, "password length")
 	flag.Parse()
 
 	password, err := generatePassword(*length)
