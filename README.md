@@ -1,57 +1,26 @@
-# Go CLI Password Generator with Restrictions
+# Password Generator
 
 ## Overview
-A command-line interface (CLI) tool for generating secure random passwords with specific restrictions, written in Go. The generated passwords will not contain three consecutive characters of the same type (uppercase, lowercase, digit, or symbol).
+This command-line tool, implemented in Go and contained within `passgen.go`, generates secure, random passwords. It ensures that no more than two consecutive characters are the same type (uppercase, lowercase, digit, or symbol).
 
 ## Installation
-
-1. Clone this repository:
-   ```
-   git clone https://github.com/BryceWayne/password-generator.git>
-   ```
-2. Navigate into the project directory:
-   ```
-   cd ./password-generator
-   ```
-3. Build the project:
-   ```
-   go build
-   ```
+Requires Go v1.x+. Clone the repository and build the project.
 
 ## Usage
+`go run passgen.go -length [desired length]`
 
-Run the program using:
-
-```bash
-./password-generator -length=16
-```
-
-### Options
-
-- `-length`: The length of the generated password (default is 12).
+Specify the password length using the `-length` flag. The default length is 16 characters.
 
 ## Example
+`go run passgen.go -length 20`
 
-```bash
-$ ./password-generator -length=16
-Generated password: Aa1!Bb2@Cc3#
-```
+Generates a 20-character password.
 
-## Restrictions
-
-The generated passwords will not contain three consecutive characters of the same type:
-
-- Lowercase: `a-z`
-- Uppercase: `A-Z`
-- Digit: `0-9`
-- Symbol: `!@#$%^&*()-_=+[]{}|;:,.<>?`
+## How it Works
+`passgen.go` uses cryptographic randomness and character type checking to generate passwords according to the specified length and restrictions.
 
 ## Dependencies
-
-- Go v1.x+
-- Crypto library (built-in)
-- Math/Big library (built-in)
+- Go standard library packages: `crypto/rand`, `flag`, `fmt`, `math/big`, `unicode`.
 
 ## License
-
-MIT
+MIT License
